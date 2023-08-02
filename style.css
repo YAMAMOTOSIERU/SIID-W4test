@@ -1,0 +1,15 @@
+#js-show {
+    cursor: pointer;
+  }
+  #js-tips {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    margin-bottom: 15px;
+    margin-top: -16px;
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 20px;
+    display: none;
+  }
+  
