@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const quiz = [
   {
+    number: "今は一問目です",
     question: "ゲーム市場、最も売れたゲーム機は次の内どれ？",
     tips: "ヒント: 発売日は2004年11月21日",
     answers: [
@@ -30,6 +31,7 @@ const quiz = [
     correct: "ニンテンドーDS",
   },
   {
+    number: "今は二問目です",
     question: "糸井重里が企画に関わった、任天堂の看板ゲームといえば？",
     tips: "ヒント: 主人公はネス",
     answers: [
@@ -41,6 +43,7 @@ const quiz = [
     correct: "MOTHER2",
   },
   {
+    number: "今は三問目です",
     question: "ファイナルファンタジーⅣの主人公の名前は？",
     tips: "ヒント: ラスボスの名前はゼロムス",
     answers: ["フリオニール", "クラウド", "ティーダ", "セシル"],
@@ -49,20 +52,19 @@ const quiz = [
 ];
 
 let tipsIndex = 0;
-
 let quizIndex = 0;
 let score = 0;
 const quizLength = quiz.length;
 
 // 下記2つの共通定数
 const $button = document.getElementsByTagName("button");
-const $tips = document.getElementById("js-tips");
 const buttonLength = $button.length;
 
 // 定数の文字列をHTMLに反映させる
 const setupQuiz = () => {
   document.getElementById("js-question").textContent = quiz[quizIndex].question;
   document.getElementById("js-tips").textContent = quiz[quizIndex].tips;
+  document.getElementById("js-number").textContent = quiz[quizIndex].number;
   let buttononIndex = 0;
   while (buttononIndex < buttonLength) {
     $button[buttononIndex].textContent = quiz[quizIndex].answers[buttononIndex];
