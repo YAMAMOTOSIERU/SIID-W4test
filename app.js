@@ -29,6 +29,7 @@ const quiz = [
       "ニンテンドーDS",
     ],
     correct: "ニンテンドーDS",
+    img: "./images/game1.png",
   },
   {
     number: "今は二問目です",
@@ -41,6 +42,7 @@ const quiz = [
       "星のカービィ",
     ],
     correct: "MOTHER2",
+    img: "./images/game2.png",
   },
   {
     number: "今は三問目です",
@@ -48,9 +50,10 @@ const quiz = [
     tips: "ヒント: ラスボスの名前はゼロムス",
     answers: ["フリオニール", "クラウド", "ティーダ", "セシル"],
     correct: "セシル",
+    img: "./images/game3.jpeg",
   },
 ];
-
+document.write;
 let tipsIndex = 0;
 let quizIndex = 0;
 let score = 0;
@@ -58,13 +61,16 @@ const quizLength = quiz.length;
 
 // 下記2つの共通定数
 const $button = document.getElementsByTagName("button");
+let number = 0;
 const buttonLength = $button.length;
 
 // 定数の文字列をHTMLに反映させる
 const setupQuiz = () => {
   document.getElementById("js-question").textContent = quiz[quizIndex].question;
   document.getElementById("js-tips").textContent = quiz[quizIndex].tips;
-  document.getElementById("js-number").textContent = quiz[quizIndex].number;
+  document.getElementById("js-img").src = quiz[quizIndex].img;
+  number + 1 + "/" + quizLength;
+  number++;
   let buttononIndex = 0;
   while (buttononIndex < buttonLength) {
     $button[buttononIndex].textContent = quiz[quizIndex].answers[buttononIndex];
@@ -72,6 +78,8 @@ const setupQuiz = () => {
   }
 };
 setupQuiz();
+
+const $reset = document.getElementById("js-reset");
 
 const clickHandler = (e) => {
   if (quiz[quizIndex].correct === e.target.textContent) {
@@ -89,6 +97,7 @@ const clickHandler = (e) => {
   } else {
     //問題数がもうなければこちらを実行
     window.alert("終了!あなたの正解数は" + score + "/" + quizLength + "です！");
+    $reset.hidden = false;
   }
 };
 
